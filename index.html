@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Unlock Your Link</title>
+  <script defer data-domain="video-link-alpha.vercel.app" src="https://plausible.io/js/script.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-br from-blue-100 to-purple-200 flex items-center justify-center min-h-screen">
@@ -40,7 +41,6 @@
     let clickTime = 0;
     let waiting = false;
 
-    // This event triggers when user returns focus to this tab/page
     window.addEventListener("focus", () => {
       if (waiting) {
         const now = Date.now();
