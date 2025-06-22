@@ -6,22 +6,33 @@
   <title>Unlock Your Link</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-  <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-md w-full">
-    <h1 class="text-2xl font-bold text-gray-800 mb-4">🔓 Unlock your link</h1>
-    
+<body class="bg-gradient-to-br from-blue-100 to-purple-200 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-2xl shadow-2xl text-center w-full max-w-md">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">🔓 Unlock your link</h1>
+
+    <!-- Progress Bar -->
     <div class="w-full bg-gray-300 rounded-full h-4 mb-6">
       <div id="progress-bar" class="bg-blue-600 h-4 rounded-full transition-all duration-500" style="width: 0%;"></div>
     </div>
-    
-    <p class="text-gray-700 mb-4" id="status-text">Watch ads to unlock the link</p>
-    
-    <button onclick="startAds()" id="start-button" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed">
-      Start Watching Ads
-    </button>
 
-    <button onclick="redirectToTelegram()" id="unlock-button" class="mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded hidden">
-      Unlock Now
+    <p id="status-text" class="text-gray-700 mb-6">Click all 3 ads to unlock your link</p>
+
+    <!-- Ad Buttons -->
+    <div class="space-y-3 mb-4">
+      <button onclick="openAd(0)" id="ad-btn-0" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg font-semibold">
+        ▶️ View Ad 1
+      </button>
+      <button onclick="openAd(1)" id="ad-btn-1" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg font-semibold" disabled>
+        ▶️ View Ad 2
+      </button>
+      <button onclick="openAd(2)" id="ad-btn-2" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg font-semibold" disabled>
+        ▶️ View Ad 3
+      </button>
+    </div>
+
+    <!-- Final Unlock Button -->
+    <button onclick="redirectToTelegram()" id="unlock-button" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg font-bold text-lg hidden">
+      ✅ Unlock Now
     </button>
   </div>
 
@@ -31,31 +42,34 @@
       "https://example-ad2.com",
       "https://example-ad3.com"
     ];
-    const telegramLink = "https://t.me/yourTelegramChannel";
-    
-    let currentAd = 0;
     const progressBar = document.getElementById("progress-bar");
-    const statusText = document.getElementById("status-text");
     const unlockBtn = document.getElementById("unlock-button");
-    const startBtn = document.getElementById("start-button");
+    const statusText = document.getElementById("status-text");
 
-    async function startAds() {
-      startBtn.disabled = true;
+    let progressSteps = [50, 90, 100];
+    let adCompleted = [false, false, false];
 
-      const progressSteps = [50, 90, 100];
-      for (let i = 0; i < adLinks.length; i++) {
-        window.open(adLinks[i], "_blank"); // Open ad in new tab
-        progressBar.style.width = progressSteps[i] + "%";
-        statusText.textContent = `Ad ${i + 1} viewed (${progressSteps[i]}% completed)`;
-        await new Promise(resolve => setTimeout(resolve, 3000)); // Wait 3 seconds
+    function openAd(index) {
+      window.open(adLinks[index], "_blank");
+
+      adCompleted[index] = true;
+      progressBar.style.width = progressSteps[index] + "%";
+      statusText.textContent = `Ad ${index + 1} viewed (${progressSteps[index]}% complete)`;
+
+      // Enable next ad button
+      if (index + 1 < adLinks.length) {
+        document.getElementById(`ad-btn-${index + 1}`).disabled = false;
       }
 
-      statusText.textContent = "✅ All ads viewed. Click to unlock your link.";
-      unlockBtn.classList.remove("hidden");
+      // Show unlock button when all ads completed
+      if (adCompleted.every(Boolean)) {
+        statusText.textContent = "✅ All ads viewed. Now you can unlock the link.";
+        unlockBtn.classList.remove("hidden");
+      }
     }
 
     function redirectToTelegram() {
-      window.location.href = telegramLink;
+      window.location.href = "https://t.me/yourTelegramChannel";
     }
   </script>
 </body>
