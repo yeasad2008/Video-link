@@ -2,73 +2,118 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ad Layout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reward Unlock Page</title>
   <style>
     body {
       font-family: sans-serif;
-      text-align: center;
-      background-color: #f9f9f9;
+      background: #f9f9f9;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .ad-banner {
-      width: 300px;
-      height: 250px;
-      background-color: #ddd;
-      margin: 20px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #ccc;
+      margin: 20px 0;
     }
-    .human-verified-btn {
-      display: inline-block;
-      margin: 20px auto;
-      padding: 12px 24px;
-      font-size: 16px;
-      color: #fff;
-      background-color: #28a745;
+    .container {
+      text-align: center;
+      max-width: 900px;
+      width: 100%;
+      padding: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #0066cc;
+      color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
+      margin-top: 20px;
     }
-    .native-banner {
-      width: 320px;
-      margin: 20px auto;
-      background-color: #fffbe6;
-      padding: 15px;
-      border: 1px solid #ffd700;
-      border-radius: 5px;
+    button:hover {
+      background-color: #004999;
+    }
+    #extra-ad {
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <!-- উপরের ব্যানার এড -->
-  <div class="<script type="text/javascript">
-	atOptions = {
-		'key' : '7132ac6dbb3cdc71db98dda1eb48c773',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/7132ac6dbb3cdc71db98dda1eb48c773/invoke.js"></script>">300x250 Banner Ad (Top)</div>
+  <!-- ✅ Socialbar Ads -->
+  <script type='text/javascript' src='//pl26622385.profitableratecpm.com/bb/ef/be/bbefbecb892d45aa25c96f146bdce75b.js'></script>
 
-  <!-- Human Verified বাটন -->
-  <button class="human-verified-btn" onclick="alert('Human Verified!')">
-    ✅ Human Verified
-  </button>
-
-  <!-- নিচের ব্যানার এড -->
-  <div class="ad-banner">300x250 Banner Ad (Bottom)</div>
-
-  <!-- নেটিভ ব্যানার -->
-  <div class="native-banner">
-    <strong>Sponsored:</strong> এই প্রোডাক্ট আপনার জন্য হতে পারে উপকারী। বিস্তারিত জানতে ক্লিক করুন।
+  <!-- ✅ Top Banner Ads -->
+  <div class="ad-banner">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '7132ac6dbb3cdc71db98dda1eb48c773',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/7132ac6dbb3cdc71db98dda1eb48c773/invoke.js"></script>
   </div>
+
+  <!-- ✅ Main Content -->
+  <div class="container">
+    <h2>আপনার রিওয়ার্ড আনলক করতে নিচের বাটনে ক্লিক করুন</h2>
+    <button id="actionBtn">Click to Continue</button>
+  </div>
+
+  <!-- ✅ Bottom Banner Ads -->
+  <div class="ad-banner">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '777e40bac41ed4088ea4b406adb7685f',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/777e40bac41ed4088ea4b406adb7685f/invoke.js"></script>
+  </div>
+
+  <!-- ✅ Extra Ad Below Bottom Banner -->
+  <div id="extra-ad">
+    <script async="async" data-cfasync="false" src="//pl26854891.profitableratecpm.com/d60870a4d8ff87daf30051753c835aa4/invoke.js"></script>
+    <div id="container-d60870a4d8ff87daf30051753c835aa4"></div>
+  </div>
+
+  <!-- ✅ Button Redirect Script -->
+  <script>
+    const steps = [
+      { text: "Click to Continue", link: "YOUR_AD_LINK_1" },
+      { text: "Get Link", link: "YOUR_AD_LINK_2" },
+      { text: "Human Verified", link: "YOUR_AD_LINK_3" },
+      { text: "Watch Video", link: "YOUR_TELEGRAM_LINK" }
+    ];
+
+    let step = 0;
+    const btn = document.getElementById('actionBtn');
+
+    btn.addEventListener('click', () => {
+      const current = steps[step];
+      window.location.href = current.link;
+
+      // Simulate user returning from ad
+      setTimeout(() => {
+        step++;
+        if (step < steps.length) {
+          btn.textContent = steps[step].text;
+        } else {
+          btn.textContent = "Finished";
+          btn.disabled = true;
+        }
+      }, 1000);
+    });
+  </script>
 
 </body>
 </html>
