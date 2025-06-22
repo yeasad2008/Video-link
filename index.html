@@ -26,13 +26,13 @@
 
   <script>
     const links = [
-      "https://example-ad1.com",
-      "https://example-ad2.com",
-      "https://example-ad3.com",
-      "https://t.me/yourTelegramChannel"
+      "https://otieu.com/4/9467479",
+      "https://otieu.com/4/9388402",
+      "https://otieu.com/4/9388407",
+      "https://t.me/otiueeio527398"
     ];
 
-    const progressSteps = [25, 50, 90, 100];
+    const progressSteps = [50, 90, 100, 100];
     const progressBar = document.getElementById("progress-bar");
     const statusText = document.getElementById("status-text");
     const mainButton = document.getElementById("main-button");
@@ -46,7 +46,7 @@
         const now = Date.now();
         const timeSpent = now - clickTime;
 
-        if (timeSpent >= 3000) {
+        if (timeSpent >= 4000) {
           progressBar.style.width = progressSteps[currentStep] + "%";
           statusText.textContent = `Ad ${currentStep + 1} viewed (${progressSteps[currentStep]}% complete)`;
           currentStep++;
@@ -58,7 +58,7 @@
             mainButton.classList.add("bg-green-600", "hover:bg-green-700");
           }
         } else {
-          statusText.textContent = "⚠️ Please stay at least 3 seconds on the ad page before returning.";
+          statusText.textContent = "⚠️ দয়া করে ৩ সেকেন্ড অপেক্ষা করুন ";
           waiting = false;
         }
       }
