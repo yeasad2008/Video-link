@@ -1,119 +1,33 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>🔒 <script type='text/javascript' src='//pl26622385.profitableratecpm.com/bb/ef/be/bbefbecb892d45aa25c96f146bdce75b.js'></script> <script type='text/javascript' src='//pl26980226.profitableratecpm.com/e2/bf/1d/e2bf1d800f6478518d0b3f38975875aa.js'></script> your link</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .ad-banner {
-      margin: 20px 0;
-    }
-    .container {
-      text-align: center;
-      max-width: 900px;
-      width: 100%;
-      padding: 20px;
-    }
-    button {
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    button:hover {
-      background-color: #004999;
-    }
-    #extra-ad {
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ✅ Socialbar Ads -->
-  <script type='text/javascript' src='//pl26622385.profitableratecpm.com/bb/ef/be/bbefbecb892d45aa25c96f146bdce75b.js'></script>
-
-  <!-- ✅ Top Banner Ads -->
-  <div class="ad-banner">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '7132ac6dbb3cdc71db98dda1eb48c773',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/7132ac6dbb3cdc71db98dda1eb48c773/invoke.js"></script>
-  </div>
-
-  <!-- ✅ Main Content -->
-  <div class="container">
-    <h2>🔒 <script type='text/javascript' src='//pl26980226.profitableratecpm.com/e2/bf/1d/e2bf1d800f6478518d0b3f38975875aa.js'></script> <script type='text/javascript' src='//pl26622385.profitableratecpm.com/bb/ef/be/bbefbecb892d45aa25c96f146bdce75b.js'></script> Your <script type='text/javascript' src='//pl26980226.profitableratecpm.com/e2/bf/1d/e2bf1d800f6478518d0b3f38975875aa.js'></script></h2>
-    <button id="actionBtn">Click to Continue</button>
-  </div>
-
-  <!-- ✅ Bottom Banner Ads -->
-  <div class="ad-banner">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '777e40bac41ed4088ea4b406adb7685f',
-        'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/777e40bac41ed4088ea4b406adb7685f/invoke.js"></script>
-  </div>
-
-  <!-- ✅ Extra Ad Below Bottom Banner -->
-  <div id="extra-ad">
-    <script async="async" data-cfasync="false" src="//pl26854891.profitableratecpm.com/d60870a4d8ff87daf30051753c835aa4/invoke.js"></script>
-    <div id="container-d60870a4d8ff87daf30051753c835aa4"></div>
-  </div>
-
-  <!-- ✅ Button Redirect Script -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ল্যান্ডিং পেজ</title>
   <script>
-    const steps = [
-      { text: "Click to Continue", link: "https://otieu.com/4/9467479" },
-      { text: "Get Link", link: "https://otieu.com/4/9388402" },
-      { text: "Human Verified", link: "https://otieu.com/4/9388407" },
-      { text: "Watch Video", link: "https://t.me/otiueeio527398" }
-    ];
+    async function handleRedirect() {
+      const links = [
+        "https://example-ad1.com",
+        "https://example-ad2.com",
+        "https://example-ad3.com",
+        "https://t.me/yourTelegramChannel"
+      ];
 
-    let step = 0;
-    const btn = document.getElementById('actionBtn');
-
-    btn.addEventListener('click', () => {
-      const current = steps[step];
-      window.location.href = current.link;
-
-      // Simulate user returning from ad
-      setTimeout(() => {
-        step++;
-        if (step < steps.length) {
-          btn.textContent = steps[step].text;
-        } else {
-          btn.textContent = "Finished";
-          btn.disabled = true;
-        }
-      }, 1000);
-    });
+      for (let i = 0; i < links.length; i++) {
+        window.location.href = links[i];
+        await new Promise(resolve => setTimeout(resolve, 3000)); // ৩ সেকেন্ড delay
+      }
+    }
   </script>
-
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-purple-200 flex items-center justify-center h-screen">
+  <div class="text-center">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">স্বাগতম!</h1>
+    <p class="text-lg mb-4 text-gray-700">চলুন শুরু করি, নিচের বোতামে ক্লিক করুন।</p>
+    <button onclick="handleRedirect()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300">
+      শুরু করুন
+    </button>
+  </div>
 </body>
 </html>
