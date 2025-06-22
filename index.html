@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Unlock Your Link</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -25,38 +25,51 @@
 
   <script>
     const links = [
-      "https://example-ad1.com",         // Ad 1
-      "https://example-ad2.com",         // Ad 2
-      "https://example-ad3.com",         // Ad 3
-      "https://t.me/yourTelegramChannel" // Final Telegram Redirect
+      "https://example-ad1.com",
+      "https://example-ad2.com",
+      "https://example-ad3.com",
+      "https://t.me/yourTelegramChannel"
     ];
 
-    const progressSteps = [50, 90, 100, 100];
+    const progressSteps = [25, 50, 90, 100];
     const progressBar = document.getElementById("progress-bar");
     const statusText = document.getElementById("status-text");
     const mainButton = document.getElementById("main-button");
 
     let currentStep = 0;
+    let clickTime = 0;
+    let waiting = false;
+
+    // This event triggers when user returns focus to this tab/page
+    window.addEventListener("focus", () => {
+      if (waiting) {
+        const now = Date.now();
+        const timeSpent = now - clickTime;
+
+        if (timeSpent >= 3000) {
+          progressBar.style.width = progressSteps[currentStep] + "%";
+          statusText.textContent = `Ad ${currentStep + 1} viewed (${progressSteps[currentStep]}% complete)`;
+          currentStep++;
+          waiting = false;
+
+          if (currentStep === links.length - 1) {
+            mainButton.textContent = "✅ Unlock Now";
+            mainButton.classList.remove("bg-blue-600");
+            mainButton.classList.add("bg-green-600", "hover:bg-green-700");
+          }
+        } else {
+          statusText.textContent = "⚠️ Please stay at least 3 seconds on the ad page before returning.";
+          waiting = false;
+        }
+      }
+    });
 
     function handleClick() {
       if (currentStep < links.length - 1) {
-        // Open ad link in new tab
+        clickTime = Date.now();
+        waiting = true;
         window.open(links[currentStep], "_blank");
-
-        // Update progress
-        progressBar.style.width = progressSteps[currentStep] + "%";
-        statusText.textContent = `Ad ${currentStep + 1} viewed (${progressSteps[currentStep]}% complete)`;
-
-        // Update button text
-        if (currentStep === links.length - 2) {
-          mainButton.textContent = "✅ Unlock Now";
-          mainButton.classList.remove("bg-blue-600");
-          mainButton.classList.add("bg-green-600", "hover:bg-green-700");
-        }
-
-        currentStep++;
       } else {
-        // Final redirect to Telegram
         window.location.href = links[links.length - 1];
       }
     }
