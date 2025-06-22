@@ -1,48 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="bn">
 <head>
-  <title>Landing Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ad Layout</title>
   <style>
-    body { text-align: center; font-family: sans-serif; margin: 0; padding: 0; }
-    .ad-container { margin: 20px auto; }
-    .btn { padding: 15px 25px; background: #007bff; color: #fff; border: none; cursor: pointer; font-size: 18px; }
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .ad-banner {
+      width: 300px;
+      height: 250px;
+      background-color: #ddd;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ccc;
+    }
+    .human-verified-btn {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .native-banner {
+      width: 320px;
+      margin: 20px auto;
+      background-color: #fffbe6;
+      padding: 15px;
+      border: 1px solid #ffd700;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
 
-<!-- সোশ্যালবার এড -->
-<script type='text/javascript' src='//pl26622385.profitableratecpm.com/bb/ef/be/bbefbecb892d45aa25c96f146bdce75b.js'></script>
+  <!-- উপরের ব্যানার এড -->
+  <div class="ad-banner">300x250 Banner Ad (Top)</div>
 
-<!-- উপরের ব্যানার এড -->
-<div class="ad-container">
-<script type="text/javascript">
-atOptions = {
-  'key' : '7132ac6dbb3cdc71db98dda1eb48c773',
-  'format' : 'iframe',
-  'height' : 250,
-  'width' : 300,
-  'params' : {}
-};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/7132ac6dbb3cdc71db98dda1eb48c773/invoke.js"></script>
-</div>
+  <!-- Human Verified বাটন -->
+  <button class="human-verified-btn" onclick="alert('Human Verified!')">
+    ✅ Human Verified
+  </button>
 
-<h2>Click here I'm not a robot</h2>
-<button class="btn" onclick="window.location.href='step2.html'">Click Here</button>
+  <!-- নিচের ব্যানার এড -->
+  <div class="ad-banner">300x250 Banner Ad (Bottom)</div>
 
-<!-- নিচের ব্যানার এড -->
-<div class="ad-container">
-<script type="text/javascript">
-atOptions = {
-  'key' : '6dc0410be848c1ce0bc826f79147c6f7',
-  'format' : 'iframe',
-  'height' : 250,
-  'width' : 300,
-  'params' : {}
-};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/6dc0410be848c1ce0bc826f79147c6f7/invoke.js"></script>
-</div>
+  <!-- নেটিভ ব্যানার -->
+  <div class="native-banner">
+    <strong>Sponsored:</strong> এই প্রোডাক্ট আপনার জন্য হতে পারে উপকারী। বিস্তারিত জানতে ক্লিক করুন।
+  </div>
 
 </body>
 </html>
