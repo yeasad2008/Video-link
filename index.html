@@ -68,8 +68,10 @@
       if (currentStep < links.length - 1) {
         clickTime = Date.now();
         waiting = true;
-        window.open(links[currentStep], "_blank");
+        // নতুন ট্যাবে লিংক ওপেন করবে, বর্তমান পেজে কিছু হবে না
+        window.open(links[currentStep], "_blank", "noopener,noreferrer");
       } else {
+        // সব ধাপ শেষ, মূল লিংকে রিডাইরেক্ট
         window.location.href = links[links.length - 1];
       }
     }
